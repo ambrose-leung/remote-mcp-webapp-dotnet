@@ -3,7 +3,7 @@ param resourceToken string
 param tags object
 
 @description('The SKU of App Service Plan.')
-param sku string = 'P0V3'
+param sku string = 'F1'
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   name: 'plan-${resourceToken}'
@@ -29,7 +29,7 @@ resource webApp 'Microsoft.Web/sites@2024-04-01' = {
     siteConfig: {
       minTlsVersion: '1.2'
       http20Enabled: true
-      alwaysOn: true
+      alwaysOn: false
       windowsFxVersion: 'DOTNET|9.0'
       metadata: [
         {
